@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrLab1", "ProgrLab1\ProgrLab1.csproj", "{F12F1F66-AE78-459C-9E9C-53D8ADCC86B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{FBB34848-F41E-4219-BDAB-BE0DB096820E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F12F1F66-AE78-459C-9E9C-53D8ADCC86B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F12F1F66-AE78-459C-9E9C-53D8ADCC86B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F12F1F66-AE78-459C-9E9C-53D8ADCC86B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F12F1F66-AE78-459C-9E9C-53D8ADCC86B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB34848-F41E-4219-BDAB-BE0DB096820E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB34848-F41E-4219-BDAB-BE0DB096820E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB34848-F41E-4219-BDAB-BE0DB096820E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB34848-F41E-4219-BDAB-BE0DB096820E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66D4E26C-8B0D-4037-9859-EBA67AC38B9A}
+	EndGlobalSection
+EndGlobal
