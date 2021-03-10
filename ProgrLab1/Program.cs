@@ -80,7 +80,7 @@ namespace ProgrLab1
                         if (b == true)
                         {
                             Console.WriteLine("\t\t\t\tКРОРЛЕВСТВО");
-                            Console.WriteLine("Название\t\t\tНаселение\t\t\tСтолица\t\\ttКороль");
+                            Console.WriteLine("Название\t\t\tНаселение\t\t\tСтолица\t\t\tКороль");
                         }
                         b = false;
                         el.Get();
