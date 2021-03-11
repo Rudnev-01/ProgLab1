@@ -20,19 +20,39 @@ namespace ProgrLab1
                 Console.Clear();
                 Console.WriteLine("Добавить государство(1)");
                 Console.WriteLine("Вывести государства(2)");
-                Console.WriteLine("Выход(3)");
-                Console.WriteLine("Выберите действие и введите число:");
-                switch (Number(1, 3))
+                Console.WriteLine("Поиск по имени(3)");
+                Console.WriteLine("Выход(4)");
+                Console.Write("Выберите действие и введите число: ");
+                switch (Number(1, 4))
                 {
                     case 1: Add(); break;
                     case 2: Print(); break;
-                    case 3: Environment.Exit(1); break;
+                    case 3: Search(); break;
+                    case 4: Environment.Exit(1); break;
                 }
 
             }
            
         }
-     
+        static void Search()
+        {
+            bool b=true;
+            Console.Write("Введите навзание: ");
+            string word = Console.ReadLine();
+            Console.WriteLine("\n");
+            foreach (State el in states)
+            {
+                if (el.IsSearch(word))
+                {
+                    el.Get();
+                    b = false;
+                }
+            }
+
+
+            if (b) Console.WriteLine("Элемент не найден.");
+                Console.ReadKey();
+        }
         static void Print()
         {
             if (states.Count() == 0) {
@@ -49,14 +69,17 @@ namespace ProgrLab1
                     {
                         if (b == true)
                         {
-                            Console.WriteLine("\t\t\t\tРЕСПУБЛИКА");
-                            Console.WriteLine("Название\t\t\tНаселение\t\t\tСтолица\t\t\tПрезидент");
+                            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+                            Console.WriteLine("\t\t\t\t\t\tРЕСПУБЛИКА");
+                            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
+                            b = false;
                         }
-                        b = false;
+                        
                         el.Get();
+                        Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
                     }
                 }
-                if (b == false) Console.WriteLine("\n\n");
+                if (b == false) Console.WriteLine("\n");
                 b = true;
                 foreach (State el in states)
                 {
@@ -64,14 +87,17 @@ namespace ProgrLab1
                     {
                         if (b == true)
                         {
-                            Console.WriteLine("\t\t\t\tМОНАРХИЯ");
-                            Console.WriteLine("Название\t\t\tНаселение\t\t\tСтолица\t\t\tИмператор");
+                            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+                            Console.WriteLine("\t\t\t\t\t\tМОНАРХИЯ");
+                            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
+                            b = false;
                         }
-                        b = false;
+                       
                         el.Get();
+                        Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
                     }
                 }
-                if (b == false) Console.WriteLine("\n\n");
+                if (b == false) Console.WriteLine("\n");
                 b = true;
                 foreach (State el in states)
                 {
@@ -79,40 +105,44 @@ namespace ProgrLab1
                     {
                         if (b == true)
                         {
-                            Console.WriteLine("\t\t\t\tКРОРЛЕВСТВО");
-                            Console.WriteLine("Название\t\t\tНаселение\t\t\tСтолица\t\t\tКороль");
+                            Console.WriteLine("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||");
+                            Console.WriteLine("\t\t\t\t\t\tКРОРЛЕВСТВО");
+                            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
+                            b = false;
                         }
-                        b = false;
+                       
                         el.Get();
+                        Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
                     }
                 }
 
 
-                Console.Write("\n\n\n\n\n\nНажмите любую клавишу для продолжения");    
+                Console.Write("\n\n\nНажмите любую клавишу для продолжения");    
                 Console.ReadKey();
             }
         }
         static void Add()
         {
+            Console.Clear();
             Console.WriteLine("Какое государство вы хотите добавить ?");
             Console.WriteLine("Республика(1)");
             Console.WriteLine("Монархия(2)");
             Console.WriteLine("Королевство(3)");
-            Console.WriteLine("Выберите действие и введите число:");
+            Console.Write("Выберите действие и введите число: ");
             int q = Number(1,3);
 
             Console.WriteLine("Введите название:");
             string name = Console.ReadLine();
 
             Console.WriteLine("Введите население:");
-            int population;
+            uint population;
             string input;
             do
             {
                 input = Console.ReadLine();
-                if (!Int32.TryParse(input, out population) || (population < 1)) Console.WriteLine("Некорректный ввод");
+                if (!UInt32.TryParse(input, out population) || (population < 1)) Console.WriteLine("Некорректный ввод");
 
-            } while (!Int32.TryParse(input, out population) || (population < 1));
+            } while (!UInt32.TryParse(input, out population) || (population < 1));
 
             Console.WriteLine("Введите столицу:");
             string capital = Console.ReadLine();

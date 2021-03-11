@@ -5,18 +5,22 @@ namespace ClassLibrary1
     public class State
     {
         protected string name;
-        protected int population;
+        protected uint population;
         protected string capital;
         // public string Name { get; set; }
         //public int Population { get; set; }
         // public string Capital { get; set; }
-
+        public bool IsSearch(string str)
+        {
+            str = str.ToUpper();
+            if (name.ToUpper().Contains(str))return true; else return false;
+        }
         public virtual void Get()
         {
 
-            Console.Write($"{name}\t\t\t{population} чел.\t\t\t{capital}");
+            Console.Write($"Название: {name}\t\tНаселение: {population} чел.\t Столица: {capital}");
         }
-        public State(string name, int population, string capital)
+        public State(string name, uint population, string capital)
         {
             this.name = name;
             this.population = population;
@@ -31,9 +35,9 @@ namespace ClassLibrary1
         public override void Get()
         {
             base.Get();
-            Console.WriteLine($"\t\t\t{president}");
+            Console.WriteLine($"\t\tПрезидент: {president}");
         }
-        public Republic(string name, int population, string capital, string president) : base(name, population, capital)
+        public Republic(string name, uint population, string capital, string president) : base(name, population, capital)
         {
             this.president = president;
         }
@@ -46,9 +50,9 @@ namespace ClassLibrary1
         public override void Get()
         {
             base.Get();
-            Console.WriteLine($"\t\t\t{emperor}");
+            Console.WriteLine($"\t\tИмператор: {emperor}");
         }
-        public Monarchy(string name, int population, string capital, string emperor) : base(name, population, capital)
+        public Monarchy(string name, uint population, string capital, string emperor) : base(name, population, capital)
         {
             this.emperor = emperor;
         }
@@ -61,9 +65,9 @@ namespace ClassLibrary1
         public override void Get()
         {
             base.Get();
-            Console.WriteLine($"\t\t\t{king}");
+            Console.WriteLine($"\t\tКороль: {king}");
         }
-        public Kingdom(string name, int population, string capital, string king) : base(name, population, capital)
+        public Kingdom(string name, uint population, string capital, string king) : base(name, population, capital)
         {
             this.king = king;
         }
