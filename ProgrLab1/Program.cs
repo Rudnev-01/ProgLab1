@@ -10,7 +10,7 @@ namespace ProgrLab1
 {
     class Program
     {
-        static List<State> states = new List<State>();
+        static List<State> states = new List<State>(10);
         static void Main(string[] args)
         {
             
