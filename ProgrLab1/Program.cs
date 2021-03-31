@@ -13,15 +13,15 @@ namespace ProgrLab1
         static List<State> states = new List<State>(10);
         static void Main(string[] args)
         {
-            
-            
+
+
             while (true)
             {
                 Console.Clear();
                 Console.WriteLine("Добавить государство(1)");
                 Console.WriteLine("Вывести государства(2)");
                 Console.WriteLine("Поиск по имени(3)");
-                Console.WriteLine("Выход(4)");
+                Console.WriteLine("Выход(4)"); 
                 Console.Write("Выберите действие и введите число: ");
                 switch (Number(1, 4))
                 {
@@ -32,33 +32,37 @@ namespace ProgrLab1
                 }
 
             }
-           
+
         }
         static void Search()
         {
-            bool b=true;
-            Console.Write("Введите навзание: ");
+            bool b = true;
+            Console.Write("Введите название: ");
             string word = Console.ReadLine();
             Console.WriteLine("\n");
             foreach (State el in states)
             {
                 if (el.IsSearch(word))
                 {
-                    el.Get();
+                    Console.Write($"{el.Name}\t\t{el.Population}\t\t{el.Capital}\t");
+                    if (el is Republic) Console.WriteLine($"\t{((Republic)el).President}");
+                    if (el is Monarchy) Console.WriteLine($"\t{((Monarchy)el).Emperor}");
+                    if (el is Kingdom) Console.WriteLine($"\t{((Kingdom)el).King}");
                     b = false;
                 }
             }
 
 
             if (b) Console.WriteLine("Элемент не найден.");
-                Console.ReadKey();
+            Console.ReadKey();
         }
         static void Print()
         {
-            if (states.Count() == 0) {
+            if (states.Count() == 0)
+            {
                 Console.WriteLine("Список пуст");
                 Console.ReadKey();
-            } 
+            }
             else
             {
 
@@ -74,8 +78,10 @@ namespace ProgrLab1
                             Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
                             b = false;
                         }
-                        
-                        el.Get();
+
+                        Console.Write($"{el.Name}\t\t{el.Population}\t\t{el.Capital}\t");
+                        if (el is Republic) Console.WriteLine($"\t{((Republic)el).President}");
+
                         Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
                     }
                 }
@@ -92,8 +98,11 @@ namespace ProgrLab1
                             Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
                             b = false;
                         }
-                       
-                        el.Get();
+
+                        Console.Write($"{el.Name}\t\t{el.Population}\t\t{el.Capital}\t");
+
+                        if (el is Monarchy) Console.WriteLine($"\t{((Monarchy)el).Emperor}");
+
                         Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
                     }
                 }
@@ -110,14 +119,16 @@ namespace ProgrLab1
                             Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
                             b = false;
                         }
-                       
-                        el.Get();
+
+                        Console.Write($"{el.Name}\t\t{el.Population}\t\t{el.Capital}\t");
+
+                        if (el is Kingdom) Console.WriteLine($"\t{((Kingdom)el).King}");
                         Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
                     }
                 }
 
 
-                Console.Write("\n\n\nНажмите любую клавишу для продолжения");    
+                Console.Write("\n\n\nНажмите любую клавишу для продолжения");
                 Console.ReadKey();
             }
         }
@@ -129,7 +140,7 @@ namespace ProgrLab1
             Console.WriteLine("Монархия(2)");
             Console.WriteLine("Королевство(3)");
             Console.Write("Выберите действие и введите число: ");
-            int q = Number(1,3);
+            int q = Number(1, 3);
 
             Console.WriteLine("Введите название:");
             string name = Console.ReadLine();
@@ -137,21 +148,22 @@ namespace ProgrLab1
             Console.WriteLine("Введите население:");
             uint population;
             string input;
+            bool p = true;
             do
             {
                 input = Console.ReadLine();
                 if (!UInt32.TryParse(input, out population) || (population < 1)) Console.WriteLine("Некорректный ввод");
-
-            } while (!UInt32.TryParse(input, out population) || (population < 1));
+                else p = false;
+            } while (p == true);
 
             Console.WriteLine("Введите столицу:");
             string capital = Console.ReadLine();
             switch (q)
             {
                 case 1:
-                    
+
                     Console.WriteLine("Введите президента:");
-                    string president= Console.ReadLine();
+                    string president = Console.ReadLine();
                     states.Add(new Republic(name, population, capital, president));
 
 
@@ -177,14 +189,13 @@ namespace ProgrLab1
         {
             int x;
             string input;
+            bool q = true;
             do
             {
-                
                 input = Console.ReadLine();
-                if (!Int32.TryParse(input, out x) || (x < a)||(x>b)) Console.WriteLine("Некорректный ввод");
-                
-                
-            } while (!Int32.TryParse(input, out x) || (x < a) || (x > b));
+                if (!Int32.TryParse(input, out x) || (x < a) || (x > b)) Console.WriteLine("Некорректный ввод");
+                else q = false;
+            } while (q == true);
 
             return x;
         }
